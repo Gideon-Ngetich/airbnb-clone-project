@@ -118,3 +118,49 @@ erDiagram
 ### 6. API Interfaces
 - **REST API**: Standard CRUD endpoints for web/mobile clients  
 - **GraphQL**: Flexible queries for complex data fetching (e.g., properties + reviews in one request)  
+
+
+## API Security
+
+### Key Security Measures
+
+#### 1. Authentication
+- **JWT (JSON Web Tokens)** with short-lived access tokens and refresh tokens
+- Secure password storage using PBKDF2 hashing with SHA-256
+- Token revocation capability for compromised sessions
+
+#### 2. Authorization
+- Role-based access control (RBAC) for endpoints (admin/host/guest roles)
+- Permission checks at both API gateway and endpoint levels
+- Ownership validation for resource modifications
+
+#### 3. Rate Limiting
+- Tiered rate limiting (strict for auth endpoints, relaxed for read operations)
+- IP-based and user-based throttling
+- Dynamic limits adjusted based on client reputation
+
+#### 4. Data Protection
+- TLS 1.3 encryption for all communications
+- Sensitive data encryption at rest (PII, payment info)
+- Regular security headers (CSP, XSS Protection, HSTS)
+
+#### 5. Payment Security
+- PCI-DSS compliant payment processing
+- Tokenization for payment instruments
+- Audit trails for all financial transactions
+
+### Security Critical Areas
+
+| Area               | Risks Mitigated                          | Implementation Importance              |
+|--------------------|------------------------------------------|----------------------------------------|
+| **User Data**      | Identity theft, privacy breaches        | Legal compliance and user trust        |
+| **Payments**       | Financial fraud, chargebacks            | Business viability and PCI requirements|
+| **Listings**       | Data tampering, fake properties         | Marketplace integrity                 |
+| **Bookings**       | Reservation fraud, denial of service    | Operational reliability               |
+| **Reviews**        | Spam, fake reviews                      | Content authenticity                  |
+
+### Ongoing Security Practices
+- Regular penetration testing
+- Automated dependency vulnerability scanning
+- Security audit logging (SIEM integration)
+- Bug bounty program for responsible disclosure
