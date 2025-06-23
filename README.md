@@ -40,6 +40,7 @@ A robust backend service providing REST and GraphQL APIs for [briefly describe a
 ## Development Setup  
 ```bash
 docker-compose up -d
+```
 
 ## Database Design
 
