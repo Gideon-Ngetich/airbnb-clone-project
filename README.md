@@ -91,3 +91,29 @@ erDiagram
     PROPERTIES ||--o{ BOOKINGS : "has"
     PROPERTIES ||--o{ REVIEWS : "receives"
     BOOKINGS ||--|| PAYMENTS : "has"
+
+## Feature Breakdown
+
+### 1. User Management
+- Handles user registration, authentication (JWT), and role-based access control (hosts/guests).  
+- Enables secure account operations (profile updates, deactivation) and forms the core of all user interactions in the system.
+
+### 2. Property Management
+- Allows hosts to create, update, and list properties with details like pricing, location, and amenities.  
+- Serves as the foundation for the booking system, with availability tracking and search functionality.
+
+### 3. Booking System
+- Manages reservation lifecycle (create/modify/cancel bookings) with date conflict validation.  
+- Calculates pricing dynamically and connects users to properties while enforcing business rules.
+
+### 4. Review System
+- Lets guests leave ratings and comments for properties they've booked.  
+- Provides reputation metrics for hosts and helps future guests make informed decisions.
+
+### 5. Payment Processing
+- Integrates with payment gateways to handle transactions securely.  
+- Tracks payment statuses and triggers booking confirmations/refunds automatically via Celery tasks.
+
+### 6. API Interfaces
+- **REST API**: Standard CRUD endpoints for web/mobile clients  
+- **GraphQL**: Flexible queries for complex data fetching (e.g., properties + reviews in one request)  
