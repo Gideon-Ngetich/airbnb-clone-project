@@ -91,6 +91,7 @@ erDiagram
     PROPERTIES ||--o{ BOOKINGS : "has"
     PROPERTIES ||--o{ REVIEWS : "receives"
     BOOKINGS ||--|| PAYMENTS : "has"
+```
 
 ## Feature Breakdown
 
