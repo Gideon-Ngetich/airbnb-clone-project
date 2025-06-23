@@ -99,7 +99,7 @@ erDiagram
 - Enables secure account operations (profile updates, deactivation) and forms the core of all user interactions in the system.
 
 ### 2. Property Management
-- Allows hosts to create, update, and list properties with details like pricing, location, and amenities.  
+- Allows hosts to create, update, delete, and list properties with details like pricing, location, and amenities.  
 - Serves as the foundation for the booking system, with availability tracking and search functionality.
 
 ### 3. Booking System
