@@ -164,3 +164,43 @@ erDiagram
 - Automated dependency vulnerability scanning
 - Security audit logging (SIEM integration)
 - Bug bounty program for responsible disclosure
+
+## CI/CD Pipeline
+
+### Overview
+Continuous Integration and Delivery (CI/CD) automates our build, test, and deployment processes. This ensures:
+- **Reliability**: Every code change is validated before deployment  
+- **Speed**: Rapid iterations with automated testing and rollbacks  
+- **Consistency**: Identical environments from development to production  
+
+### Implementation  
+- **GitHub Actions**: Primary CI/CD platform for workflow automation  
+- **Docker**: Containerization for environment consistency  
+- **AWS ECS/EKS**: Deployment targets for container orchestration  
+- **Terraform**: Infrastructure as Code (IaC) for provisioning  
+
+### Pipeline Stages  
+1. **Build**:  
+   - Docker image creation  
+   - Dependency installation  
+
+2. **Test**:  
+   - Unit tests (pytest)  
+   - Integration tests  
+   - Security scans (Trivy, Bandit)  
+
+3. **Deploy**:  
+   - Staging environment (auto on `main` branch)  
+   - Production (manual approval)  
+
+```yaml
+# Sample GitHub Actions Snippet
+name: Django CI/CD
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t backend .
+      - run: docker-compose run app pytest
